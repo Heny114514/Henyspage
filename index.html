@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Heny's Page</title>
+    <link rel="icon" href="./image/indexicon.ico">
+    <link rel="stylesheet" href="./css/buttons.css" type="text/css">
+
+    <style type="text/css">
+        .title {
+            text-align: center;
+            color: rgb(0, 162, 255);
+            font-family: genshin;
+            font-size: 50px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: rgb(0, 162, 255);
+            font-family: genshin;
+            font-size: 25px;
+        }
+
+        .lastweb {
+            text-align: center;
+            color: blue;
+            font-family: starrail;
+            font-size: 15px;
+            text-decoration: none;
+        }
+
+        .box {
+            display: flex;
+            align-items: center;
+        }
+
+        .line {
+            border-top: 3px solid rgb(0, 162, 255);
+            flex-grow: 1;
+        }
+
+        @font-face {
+            font-family: genshin;
+            src: url("./font/genshin.ttf");
+        }
+
+        @font-face {
+            font-family: starrail;
+            src: url("./font/starrail.ttf");
+        }
+    </style>
+</head>
+<!-- <a href="./index.html" class="lastweb">click to return</a> -->
+<button class="lastwebbutton" onclick="jump('./index.html')">click to return</button>
+<!-- <div class="title">Welcome to Heny's page</div> -->
+<button class="titlebutton"><div class="title">Welcome to Heny's page</div></button>
+<br>
+<div class="box">
+    <span class="line"></span>
+    <span class="subtitle">start from here</span>
+    <span class="line"></span>
+</div>
+
+<a href="./web/genshin.html">
+    <video id="video1" onmouseover="videoPlayback(video1)" onmouseout="videoStopped(video1)" width="640px" height="360px"
+        src="./video/genshin.mp4"></video>
+</a>
+<a href="./web/starrail.html">
+    <video id="video2" onmouseover="videoPlayback(video2)" onmouseout="videoStopped(video2)" width="640px" height="360px"
+        src="./video/starrail.mp4"></video>
+</a>
+
+<script>
+    function videoPlayback(video) {
+        // var video = document.getElementById('video');
+        video.setAttribute("autoplay", "autoplay")
+        video.setAttribute("loop", "loop")
+        video.play();
+    }
+
+    function videoStopped(video) {
+        // var oDiv = document.getElementById('video');
+        video.pause();
+    }
+
+    function jump(url){
+        window.location.href=url;
+    }
+</script>
+
+</html>

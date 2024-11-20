@@ -1,0 +1,25 @@
+.titlebutton {
+    /* 水平居中 */
+    display: block;
+    margin: auto;
+    /* 霓虹样式 */
+    background-color: lightblue;
+    border: .5px solid lightblue;
+    border-radius: 25px;
+    color: lightblue;
+    padding: 8px;
+    box-shadow: 0 0 30px 0 lightblue,
+        0 0 30px 0 lightblue,
+        0 0 10px 0 lightblue inset;
+}
+
+.lastwebbutton{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgb(0, 162, 255);
+    border: .5px solid rgb(0, 162, 255);
+    border-radius: 10px;
+    color: white;
+    padding: 8px;
+}

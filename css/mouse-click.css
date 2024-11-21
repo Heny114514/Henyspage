@@ -1,21 +1,9 @@
-.videobutton1 {
-    position: fixed; top: 25%; left: 1%;
+.videobutton {
     width: 100px;
     height: 100px;
     transition: transform 0.5s ease;
 }
 
-.videobutton1:hover {
-    transform: scale(1.05);
-}
-
-.videobutton2 {
-    position: fixed; top: 25%; right: 1%;
-    width: 100px;
-    height: 100px;
-    transition: transform 0.5s ease;
-}
-
-.videobutton2:hover {
+.videobutton:hover {
     transform: scale(1.05);
 }

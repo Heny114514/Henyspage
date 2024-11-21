@@ -1,11 +1,22 @@
-/* 定义元素的基本样式 */
-.element {
-    width: 100px; /* 初始宽度 */
-    height: 100px; /* 初始高度 */
-    transition: transform 0.5s ease; /* 过渡动画的属性，这里设置了0.5秒的过渡时间 */
-  }
-  
-  /* 定义鼠标悬停时的样式 */
-  .element:hover {
-    transform: scale(1.2); /* 鼠标悬停时放大到原来的1.2倍 */
-  }
+/* 工具提示的基本样式 */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+/* 工具提示文本的样式 */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1000;
+    pointer-events: none;
+    /* 防止鼠标事件冲突 */
+    opacity: 0;
+    transition: opacity 0.3s;
+}

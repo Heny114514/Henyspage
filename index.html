@@ -53,11 +53,14 @@
     </style>
 </head>
 <img src="./image/background.jpg" style="width: 100%;height: 100%;object-fit: cover;position: fixed;bottom: 0px;left: 0px;z-index: -1;"></img>
+<audio id="bgaudio" src="./audio/indexbackground.mp3" preload="auto"></audio>
 
-
-<!-- <a href="./index.html" class="lastweb">click to return</a> -->
 <button class="lastwebbutton" onclick="jump('./index.html')">click to return</button>
-<!-- <div class="title">Welcome to Heny's page</div> -->
+<!-- <div class="button"><button class="lastwebbutton" onclick="jump('./index.html')">click to return</button></div> -->
+
+<img id="audioButton" src="./image/audiostopping.png" class="bgmusic" onclick="toggleSound()">
+
+
 <button class="titlebutton"><div class="title">Welcome to Heny's page</div></button>
 <br>
 <div class="box">
@@ -65,29 +68,49 @@
     <span class="subtitle">start from here</span>
     <span class="line"></span>
 </div>
-<div class="videobutton1">
+<div class="videobutton" style="position: fixed; top: 25%; left: 1%;">
 <a href="./web/genshin.html">
-    <video id="video1" onmouseover="videoPlayback(video1)" onmouseout="videoStopped(video1)"
-        src="./video/genshin.mp4" style="position: absolute; top: 25%; left: 1%; width: 640px; height: 360px;"></video>
+    <video id="video1" src="./video/genshin.mp4" style="position: absolute; top: 25%; left: 1%; width: 640px; height: 360px;" autoplay loop muted></video>
 </a>
 </div>
-<div class="videobutton2">
+<div class="videobutton" style="position: fixed; top: 25%; right: 1%;">
 <a href="./web/starrail.html">
-    <video id="video2" onmouseover="videoPlayback(video2)" onmouseout="videoStopped(video2)"
-        src="./video/starrail.mp4" style="position: absolute; top: 25%; right: 1%; width: 640px; height: 360px;"></video>
+    <video id="video2" src="./video/starrail.mp4" style="position: absolute; top: 25%; right: 1%; width: 640px; height: 360px;" autoplay loop muted></video>
 </a>
 </div>
 
 <script>
+    var bgaudio = document.getElementById("bgaudio");
+    bgaudio.volume = 0.2;
+    var ifplay = false;
+    function toggleSound(){
+        // console.log(audio);
+        // console.log(audio.paused);
+        // if(audio.paused){
+        //     audio.paused=false;
+        //     audio.play();
+        // }
+        var audioButton = document.getElementById("audioButton");
+        if(ifplay){
+            bgaudio.pause();
+            audioButton.src = "./image/audiostopping.png";
+            ifplay=false;
+        }
+        else{
+            bgaudio.play();
+            audioButton.src = "./image/audioplaying.png";
+            ifplay=true;
+        }
+        
+    }
+
     function videoPlayback(video) {
-        // var video = document.getElementById('video');
         video.setAttribute("autoplay", "autoplay")
         video.setAttribute("loop", "loop")
         video.play();
     }
 
     function videoStopped(video) {
-        // var oDiv = document.getElementById('video');
         video.pause();
     }
 

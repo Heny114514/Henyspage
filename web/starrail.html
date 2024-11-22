@@ -4,7 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <title>崩坏：星穹铁道</title>
-    <link rel="icon" href="../image/starrail.png">
+    <link rel="icon" href="../image/starrail-icon.png">
+    <link rel="stylesheet" href="../css/font.css" type="text/css">
+    <link rel="stylesheet" href="../css/buttons.css" type="text/css">
+    <link rel="stylesheet" href="../css/tips.css" type="text/css">
+    <link rel="script" href="">
+    <style>
+        @font-face {
+            font-family: genshin;
+            src: url("../font/starrail.ttf");
+        }
+    </style>
 </head>
+
+<body>
+    <img src="../image/starrail-bg.png"
+        style="width: 100%;height: 100%;object-fit: cover;position: fixed;bottom: 0px;left: 0px;z-index: -1;"></img>
+    <img src="../image/back_white.png" style="position: fixed;top: 10px;left: 10px;width: 50px;height: 50px;"
+        class="button" onclick="jump('../index.html')" onmouseover="showtip(backtip)" onmouseout="closetip(backtip)">
+    <div id="backtip" class="tips" style="position: fixed;top: 60px;left: 10px;">返回上一级</div>
+    <img src="../image/home_white.png" style="position: fixed;top: 10px;left: 60px;width: 50px;height: 50px;"
+        class="button" onclick="jump('../index.html')" onmouseover="showtip(hometip)" onmouseout="closetip(hometip)">
+    <div id="hometip" class="tips" style="position: fixed;top: 60px;left: 60px;">回到主页</div>
+
+
+    <audio id="bgaudio" src="../audio/starrail_bgm.mp3" preload="auto" loop></audio>
+    <img id="audioButton" src="../image/audiostopping.png"
+        style="position: fixed;right: 10px;top: 10px;width: 50px;height: 50px;" class="button" onclick="toggleSound()"
+        onmouseover="showtip(bgtip)" onmouseout="closetip(bgtip)">
+    <div id="bgtip" class="tips" style="position:fixed;top:22px;right:70px;">背景音乐</div>
+    <img src="../image/starrail-logo.png" style="display: block;margin: auto;width: 25%;">
+</body>
+
+<script src="../js/button.js"></script>
+<script>
+    var bgaudio = document.getElementById("bgaudio");
+    bgaudio.volume = 0.2;
+    var ifplay = false;
+    function toggleSound() {
+        var audioButton = document.getElementById("audioButton");
+        if (ifplay) {
+            bgaudio.pause();
+            audioButton.src = "../image/audiostopping.png";
+            ifplay = false;
+        }
+        else {
+            bgaudio.play();
+            audioButton.src = "../image/audioplaying.png";
+            ifplay = true;
+        }
+
+    }
+</script>
 
 </html>

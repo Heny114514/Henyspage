@@ -53,50 +53,52 @@
         }
     </style>
 </head>
-<img src="./image/background.jpg"
-    style="width: 100%;height: 100%;object-fit: cover;position: fixed;bottom: 0px;left: 0px;z-index: -1;"></img>
-<audio id="bgaudio" src="./audio/indexbackground.mp3" preload="auto"></audio>
 
-<!-- <button class="lastwebbutton" onclick="jump('./index.html')">click to return</button> -->
-<img src="./image/back_white.png" style="position: fixed;top: 10px;left: 10px;width: 50px;height: 50px;" class="button"
-    onclick="jump('./index.html')" onmouseover="showtip(backtip)" onmouseout="closetip(backtip)">
-<div id="backtip" class="tips" style="position: fixed;top: 22px;left: 70px;">返回上一级</div>
-
-<img id="audioButton" src="./image/audiostopping.png"
-    style="position: fixed;right: 10px;top: 10px;width: 50px;height: 50px;" class="button" onclick="toggleSound()"
-    onmouseover="showtip(bgtip)" onmouseout="closetip(bgtip)">
-<div id="bgtip" class="tips" style="position:fixed;top:22px;right:70px;">背景音乐</div>
+<body>
+    <img src="./image/index-bg.jpg"
+        style="width: 100%;height: 100%;object-fit: cover;position: fixed;bottom: 0px;left: 0px;z-index: -1;"></img>
 
 
-<button class="titlebutton">
-    <div class="title">Welcome to Heny's page</div>
-</button>
-<br>
-<div class="box">
-    <span class="line"></span>
-    <span class="subtitle">start from here</span>
-    <span class="line"></span>
-</div>
+    <img src="./image/back_white.png" style="position: fixed;top: 10px;left: 10px;width: 50px;height: 50px;"
+        class="button" onclick="jump('./index.html')" onmouseover="showtip(backtip)" onmouseout="closetip(backtip)">
+    <div id="backtip" class="tips" style="position: fixed;top: 22px;left: 70px;">返回上一级</div>
+
+    <audio id="bgaudio" src="./audio/index_bgm.mp3" preload="auto" loop></audio>
+    <img id="audioButton" src="./image/audiostopping.png"
+        style="position: fixed;right: 10px;top: 10px;width: 50px;height: 50px;" class="button" onclick="toggleSound()"
+        onmouseover="showtip(bgtip)" onmouseout="closetip(bgtip)">
+    <div id="bgtip" class="tips" style="position:fixed;top:22px;right:70px;">背景音乐</div>
 
 
-<div class="videobutton" style="position: fixed; top: 25%; left: 1%;">
-    <a href="./web/genshin.html">
-        <video id="video1" src="./video/genshin.mp4"
-            style="position: absolute; top: 25%; left: 1%; width: 640px; height: 360px;" autoplay loop muted
-            onmouseover="showtip(genshintip)" onmouseout="closetip(genshintip)"></video>
-    </a>
-</div>
-<div id="genshintip" class="tips" style="position: fixed;top: 24%;left: 20%;">原神</div>
+    <button class="titlebutton">
+        <div class="title">Welcome to Heny's page</div>
+    </button>
+    <br>
+    <div class="box">
+        <span class="line"></span>
+        <span class="subtitle">start from here</span>
+        <span class="line"></span>
+    </div>
 
-<div class="videobutton" style="position: fixed; top: 25%; right: 1%;">
-    <a href="./web/starrail.html">
-        <video id="video2" src="./video/starrail.mp4"
-            style="position: absolute; top: 25%; right: 1%; width: 640px; height: 360px;" autoplay loop muted
-            onmouseover="showtip(starrailtip)" onmouseout="closetip(starrailtip)"></video>
-    </a>
-</div>
-<div id="starrailtip" class="tips" style="position: fixed;top: 24%;right: 18%;">崩坏：星穹铁道</div>
 
+    <div class="videobutton" style="position: fixed; top: 25%; left: 1%;">
+        <a href="./web/genshin.html">
+            <video id="video1" src="./video/genshin.mp4"
+                style="position: absolute; top: 25%; left: 1%; width: 640px; height: 360px;" autoplay loop muted
+                onmouseover="showtip(genshintip)" onmouseout="closetip(genshintip)"></video>
+        </a>
+    </div>
+    <div id="genshintip" class="tips" style="position: fixed;top: 24%;left: 20%;">原神</div>
+
+    <div class="videobutton" style="position: fixed; top: 25%; right: 1%;">
+        <a href="./web/starrail.html">
+            <video id="video2" src="./video/starrail.mp4"
+                style="position: absolute; top: 25%; right: 1%; width: 640px; height: 360px;" autoplay loop muted
+                onmouseover="showtip(starrailtip)" onmouseout="closetip(starrailtip)"></video>
+        </a>
+    </div>
+    <div id="starrailtip" class="tips" style="position: fixed;top: 24%;right: 18%;">崩坏：星穹铁道</div>
+</body>
 
 <script src="./js/button.js"></script>
 <script>

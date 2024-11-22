@@ -5,54 +5,80 @@
     <link rel="stylesheet" href="./css/test.css" type="text/css">
 </head>
 
-<div class="tooltip">悬停我
-    <span class="tooltiptext" style="display: none;">这里是提示信息！</span>
-</div>
+<img class="tooltip" src="./image/genshinicon.png" onmouseover="show(this)" onmouseout="disshow()">
+    <!-- <span class="tooltiptext">这里是提示信息！</span> -->
+</img>
+<img class="tooltip" src="./image/starrail.png" onmouseover="show(this)" onmouseout="disshow()">
+
+<div class="tooltiptext">这里是提示信息！</div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var tooltip = document.querySelector('.tooltip');
+    // var ifshow = false;
+    function show(element){
         var tooltipText = document.querySelector('.tooltiptext');
+        tooltipText.style.display = 'block';
+        ifshow = true;
+        // while(ifshow){
+            // var x = window.event.clientX;
+            // var y = window.event.clientY;
+            var x = element.style.left;
+            var y = element.style.top;
+            var left = x; // 鼠标右侧10px
+            var top = y; // 鼠标下方10px
+            tooltipText.style.left = left;
+            tooltipText.style.top = top;
+        // }
+    }
+    function disshow(){
+        var tooltipText = document.querySelector('.tooltiptext');
+        tooltipText.style.display = 'none';
+        // ifshow = false;
+    }
 
-        tooltip.addEventListener('mouseenter', function (event) {
-            tooltipText.style.display = 'block';
-            tooltipText.style.visibility = 'visible';
-            tooltipText.style.opacity = 1;
-            updateTooltipPosition(event);
-        });
 
-        tooltip.addEventListener('mousemove', function (event) {
-            updateTooltipPosition(event);
-        });
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     var tooltip = document.querySelector('.tooltip');
+    //     var tooltipText = document.querySelector('.tooltiptext');
 
-        tooltip.addEventListener('mouseleave', function () {
-            tooltipText.style.visibility = 'hidden';
-            tooltipText.style.opacity = 0;
-            setTimeout(function () {
-                tooltipText.style.display = 'none';
-            }, 300); // 等待过渡效果完成后再隐藏
-        });
+    //     tooltip.addEventListener('mouseenter', function (event) {
+    //         tooltipText.style.display = 'block';
+    //         tooltipText.style.visibility = 'visible';
+    //         tooltipText.style.opacity = 1;
+    //         updateTooltipPosition(event);
+    //     });
 
-        function updateTooltipPosition(event) {
-            var x = event.clientX;
-            var y = event.clientY;
-            var tooltipWidth = tooltipText.offsetWidth;
-            var tooltipHeight = tooltipText.offsetHeight;
+    //     tooltip.addEventListener('mousemove', function (event) {
+    //         updateTooltipPosition(event);
+    //     });
 
-            // 计算提示框的位置，使其显示在鼠标的右下角
-            var left = x + 10; // 鼠标右侧10px
-            var top = y + 10; // 鼠标下方10px
+    //     tooltip.addEventListener('mouseleave', function () {
+    //         tooltipText.style.visibility = 'hidden';
+    //         tooltipText.style.opacity = 0;
+    //         setTimeout(function () {
+    //             tooltipText.style.display = 'none';
+    //         }, 300); // 等待过渡效果完成后再隐藏
+    //     });
 
-            // 如果提示框超出屏幕右侧或底部，调整位置
-            if (x + tooltipWidth + 10 > window.innerWidth) {
-                left = x - tooltipWidth - 10; // 鼠标左侧tooltipWidth + 10px边距
-            }
-            if (y + tooltipHeight + 10 > window.innerHeight) {
-                top = y - tooltipHeight - 10; // 鼠标上方tooltipHeight + 10px边距
-            }
+    //     function updateTooltipPosition(event) {
+    //         var x = event.clientX;
+    //         var y = event.clientY;
+    //         var tooltipWidth = tooltipText.offsetWidth;
+    //         var tooltipHeight = tooltipText.offsetHeight;
 
-            tooltipText.style.left = left + 'px';
-            tooltipText.style.top = top + 'px';
-        }
-    });
+    //         // 计算提示框的位置，使其显示在鼠标的右下角
+    //         var left = x + 10; // 鼠标右侧10px
+    //         var top = y + 10; // 鼠标下方10px
+
+    //         // 如果提示框超出屏幕右侧或底部，调整位置
+    //         if (x + tooltipWidth + 10 > window.innerWidth) {
+    //             left = x - tooltipWidth - 10; // 鼠标左侧tooltipWidth + 10px边距
+    //         }
+    //         if (y + tooltipHeight + 10 > window.innerHeight) {
+    //             top = y - tooltipHeight - 10; // 鼠标上方tooltipHeight + 10px边距
+    //         }
+
+    //         tooltipText.style.left = left + 'px';
+    //         tooltipText.style.top = top + 'px';
+    //     }
+    // });
 </script>

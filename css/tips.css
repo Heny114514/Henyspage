@@ -1,0 +1,8 @@
+.tips{
+    padding:1px 1px;
+    border: 1px rgb(0, 0, 0) solid;
+    background: black;
+    color: white;
+    opacity: 0.8;
+    display: none;
+}

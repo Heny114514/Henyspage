@@ -1,22 +1,21 @@
 /* 工具提示的基本样式 */
 .tooltip {
-    position: relative;
+    /* position: fixed;
     display: inline-block;
-    border-bottom: 1px dotted black;
+    border-bottom: 1px dotted black; */
+    width: 100px;
+    height: 50px;
 }
 
 /* 工具提示文本的样式 */
-.tooltip .tooltiptext {
-    visibility: hidden;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    padding: 5px;
-    border-radius: 6px;
-    position: absolute;
-    z-index: 1000;
-    pointer-events: none;
-    /* 防止鼠标事件冲突 */
-    opacity: 0;
-    transition: opacity 0.3s;
+.tooltiptext {
+    /* padding: 10px 10px; */
+    /* width: 200px;
+    height: 60px; */
+    border: 1px rgb(0, 0, 0) solid;
+    background: blue;
+    color: white;
+    opacity: 0.6;
+    position: fixed;
+    display: none;
 }

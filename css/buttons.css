@@ -23,7 +23,7 @@
     color: white;
     padding: 8px;
 }
-
+/* 按钮动效的class */
 .button{
     transition: transform 0.1s ease;
     cursor: pointer;

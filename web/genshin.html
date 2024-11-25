@@ -5,14 +5,20 @@
     <meta charset="UTF-8">
     <title>原神</title>
     <link rel="icon" href="../image/genshin-icon.png">
+
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="../css/font.css" type="text/css">
     <link rel="stylesheet" href="../css/buttons.css" type="text/css">
     <link rel="stylesheet" href="../css/tips.css" type="text/css">
-    <link rel="script" href="">
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
     <style>
         @font-face {
             font-family: genshin;
             src: url("../font/genshin.ttf");
+        }
+        p{
+            text-indent: 2em;
         }
     </style>
 
@@ -34,7 +40,89 @@
         style="position: fixed;right: 10px;top: 10px;width: 50px;height: 50px;" class="button" onclick="toggleSound()"
         onmouseover="showtip(bgtip)" onmouseout="closetip(bgtip)">
     <div id="bgtip" class="tips" style="position:fixed;top:22px;right:70px;">背景音乐</div>
-    <img src="../image/genshin-logo.png" style="display: block;margin: auto;width: 25%;">
+    <img src="../image/genshin-logo.png" style="display: block;margin: auto;width: 25%;" class="button" onclick="jump('https\://ys.mihoyo.com/')">
+
+    <div class="panel-group" id="accordion" style="width: 60%;position:relative;top:20px;margin: auto;font-family: genshin;">
+        <!-- panel -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                    什么是原神？
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>
+                        《原神》是由米哈游自主研发的一款全新开放世界冒险游戏。游戏发生在一个被称作「提瓦特」的幻想世界，在这里，被神选中的人将被授予「神之眼」，导引元素之力。你将扮演一位名为「旅行者」的神秘角色在自由的旅行中邂逅性格各异、能力独特的同伴们，和他们一起击败强敌，找回失散的亲人——同时，逐步发掘「原神」的真相。
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- panel -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                        背景设定
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>
+                        这里是七种元素交汇的幻想世界“提瓦特”。在遥远的过去，人们藉由对神灵的信仰，获赐了驱动元素的力量，得以在荒野中筑起家园。五百年前，古国的覆灭却使得天地变异……如今，席卷大陆的灾难已经停息，和平却仍未如期光临。作为故事的主人公，你从世界之外漂流而来，降临大地。你将在这广阔的世界中，自由旅行、结识同伴、寻找掌控尘世元素的七神，直到与分离的血亲重聚。
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- panel -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                        元素
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <img src="../image/genshin/elements/Pyro.png" style="width: 15px;height: 15px;"><span style="color: #ff2323;">火</span>
+                    <img src="../image/genshin/elements/Hydro.png" style="width: 15px;height: 15px;"><span style="color: #24c3fe;">水</span>
+                    <img src="../image/genshin/elements/Anemo.png" style="width: 15px;height: 15px;"><span style="color: #0ff1c4;">风</span>
+                    <img src="../image/genshin/elements/Electro.png" style="width: 15px;height: 15px;"><span style="color: #c216fa;">雷</span>
+                    <img src="../image/genshin/elements/Dendro.png" style="width: 15px;height: 15px;"><span style="color: #69f325;">草</span>
+                    <img src="../image/genshin/elements/Cryo.png" style="width: 15px;height: 15px;"><span style="color: #0cecfa;">冰</span>
+                    <img src="../image/genshin/elements/Geo.png" style="width: 15px;height: 15px;"><span style="color: #d7a23b;">岩</span>
+                </div>
+            </div>
+        </div>
+        <!-- panel -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                        国家&可操作角色
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse">
+                <div class="panel-body">
+                    提瓦特中七个元素对应七位神，称为尘世七执政，每个神都掌管一个国家，每个国家都有一个主题词。<br>
+                    <h3 style="color: #0ff1c4;"><img src="../image/genshin/elements/Anemo.png" style="width: 30px;height: 30px;">蒙德</h3>
+                    <h3 style="color: #d7a23b;"><img src="../image/genshin/elements/Geo.png" style="width: 30px;height: 30px;">璃月</h3>
+                    <h3 style="color: #c216fa;"><img src="../image/genshin/elements/Electro.png" style="width: 30px;height: 30px;">稻妻</h3>
+                    <h3 style="color: #69f325;"><img src="../image/genshin/elements/Dendro.png" style="width: 30px;height: 30px;">须弥</h3>
+                    <h3 style="color: #24c3fe;"><img src="../image/genshin/elements/Hydro.png" style="width: 30px;height: 30px;">枫丹</h3>
+                    <h3 style="color: #ff2323;"><img src="../image/genshin/elements/Pyro.png" style="width: 30px;height: 30px;">纳塔</h3>
+                    <h3 style="color: #0cecfa;"><img src="../image/genshin/elements/Cryo.png" style="width: 30px;height: 30px;">至冬</h3>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 <script src="../js/button.js"></script>

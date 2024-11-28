@@ -17,7 +17,8 @@
             font-family: genshin;
             src: url("../font/genshin.ttf");
         }
-        p{
+
+        p {
             text-indent: 2em;
         }
     </style>
@@ -40,15 +41,17 @@
         style="position: fixed;right: 10px;top: 10px;width: 50px;height: 50px;" class="button" onclick="toggleSound()"
         onmouseover="showtip(bgtip)" onmouseout="closetip(bgtip)">
     <div id="bgtip" class="tips" style="position:fixed;top:22px;right:70px;">背景音乐</div>
-    <img src="../image/genshin-logo.png" style="display: block;margin: auto;width: 25%;" class="button" onclick="jump('https\://ys.mihoyo.com/')">
+    <img src="../image/genshin-logo.png" style="display: block;margin: auto;width: 25%;" class="button"
+        onclick="jump('https\://ys.mihoyo.com/')">
 
-    <div class="panel-group" id="accordion" style="width: 60%;position:relative;top:20px;margin: auto;font-family: genshin;">
+    <div class="panel-group" id="accordion"
+        style="width: 60%;position:relative;top:20px;margin: auto;font-family: genshin;">
         <!-- panel -->
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                    什么是原神？
+                        什么是原神？
                     </a>
                 </h4>
             </div>
@@ -91,27 +94,49 @@
                     元素是原神的特色机制
                     <h3>元素类别</h3>
                     <p>
-                        <img src="../image/genshin/elements/Pyro.png" style="width: 15px;height: 15px;"><span class="Pyro">火</span>
-                        <img src="../image/genshin/elements/Hydro.png" style="width: 15px;height: 15px;"><span class="Hydro">水</span>
-                        <img src="../image/genshin/elements/Anemo.png" style="width: 15px;height: 15px;"><span class="Anemo">风</span>
-                        <img src="../image/genshin/elements/Electro.png" style="width: 15px;height: 15px;"><span class="Electro">雷</span>
-                        <img src="../image/genshin/elements/Dendro.png" style="width: 15px;height: 15px;"><span class="Dendro">草</span>
-                        <img src="../image/genshin/elements/Cryo.png" style="width: 15px;height: 15px;"><span class="Cryo">冰</span>
-                        <img src="../image/genshin/elements/Geo.png" style="width: 15px;height: 15px;"><span class="Geo">岩</span>
+                        <img src="../image/genshin/elements/Pyro.png" style="width: 15px;height: 15px;"><span
+                            class="Pyro">火</span>
+                        <img src="../image/genshin/elements/Hydro.png" style="width: 15px;height: 15px;"><span
+                            class="Hydro">水</span>
+                        <img src="../image/genshin/elements/Anemo.png" style="width: 15px;height: 15px;"><span
+                            class="Anemo">风</span>
+                        <img src="../image/genshin/elements/Electro.png" style="width: 15px;height: 15px;"><span
+                            class="Electro">雷</span>
+                        <img src="../image/genshin/elements/Dendro.png" style="width: 15px;height: 15px;"><span
+                            class="Dendro">草</span>
+                        <img src="../image/genshin/elements/Cryo.png" style="width: 15px;height: 15px;"><span
+                            class="Cryo">冰</span>
+                        <img src="../image/genshin/elements/Geo.png" style="width: 15px;height: 15px;"><span
+                            class="Geo">岩</span>
                     </p>
                     <h3>元素附着</h3>
                     <p>带有元素属性的攻击每3次或两次攻击间隔大于2.5s均可附着一次元素，附着在同一生物上的两种及以上元素有机会发生元素反应</p>
                     <h3>元素反应</h3>
                     <p>元素反应是二元无序的，有以下几种：
-                        蒸发(<img src="../image/genshin/elements/Pyro.png" style="width: 15px;height: 15px;">+<img src="../image/genshin/elements/Hydro.png" style="width: 15px;height: 15px;">)、
-                        冻结(<img src="../image/genshin/elements/Hydro.png" style="width: 15px;height: 15px;">+<img src="../image/genshin/elements/Cryo.png" style="width: 15px;height: 15px;">)、
-                        融化(<img src="../image/genshin/elements/Pyro.png" style="width: 15px;height: 15px;">+<img src="../image/genshin/elements/Cryo.png" style="width: 15px;height: 15px;">)、
-                        超导(<img src="../image/genshin/elements/Cryo.png" style="width: 15px;height: 15px;">+<img src="../image/genshin/elements/Electro.png" style="width: 15px;height: 15px;">)、
-                        燃烧(<img src="../image/genshin/elements/Pyro.png" style="width: 15px;height: 15px;">+<img src="../image/genshin/elements/Dendro.png" style="width: 15px;height: 15px;">)、
-                        绽放(<img src="../image/genshin/elements/Hydro.png" style="width: 15px;height: 15px;">+<img src="../image/genshin/elements/Dendro.png" style="width: 15px;height: 15px;">)、
-                        激化(<img src="../image/genshin/elements/Dendro.png" style="width: 15px;height: 15px;">+<img src="../image/genshin/elements/Electro.png" style="width: 15px;height: 15px;">)、
-                        扩散(<img src="../image/genshin/elements/Anemo.png" style="width: 15px;height: 15px;">+<img src="../image/genshin/elements/Pyro.png" style="width: 15px;height: 15px;">/<img src="../image/genshin/elements/Hydro.png" style="width: 15px;height: 15px;">/<img src="../image/genshin/elements/Electro.png" style="width: 15px;height: 15px;">/<img src="../image/genshin/elements/Cryo.png" style="width: 15px;height: 15px;">)、
-                        结晶(<img src="../image/genshin/elements/Geo.png" style="width: 15px;height: 15px;">+<img src="../image/genshin/elements/Pyro.png" style="width: 15px;height: 15px;">/<img src="../image/genshin/elements/Hydro.png" style="width: 15px;height: 15px;">/<img src="../image/genshin/elements/Electro.png" style="width: 15px;height: 15px;">/<img src="../image/genshin/elements/Cryo.png" style="width: 15px;height: 15px;">)
+                        蒸发(<img src="../image/genshin/elements/Pyro.png" style="width: 15px;height: 15px;">+<img
+                            src="../image/genshin/elements/Hydro.png" style="width: 15px;height: 15px;">)、
+                        冻结(<img src="../image/genshin/elements/Hydro.png" style="width: 15px;height: 15px;">+<img
+                            src="../image/genshin/elements/Cryo.png" style="width: 15px;height: 15px;">)、
+                        融化(<img src="../image/genshin/elements/Pyro.png" style="width: 15px;height: 15px;">+<img
+                            src="../image/genshin/elements/Cryo.png" style="width: 15px;height: 15px;">)、
+                        超导(<img src="../image/genshin/elements/Cryo.png" style="width: 15px;height: 15px;">+<img
+                            src="../image/genshin/elements/Electro.png" style="width: 15px;height: 15px;">)、
+                        燃烧(<img src="../image/genshin/elements/Pyro.png" style="width: 15px;height: 15px;">+<img
+                            src="../image/genshin/elements/Dendro.png" style="width: 15px;height: 15px;">)、
+                        绽放(<img src="../image/genshin/elements/Hydro.png" style="width: 15px;height: 15px;">+<img
+                            src="../image/genshin/elements/Dendro.png" style="width: 15px;height: 15px;">)、
+                        激化(<img src="../image/genshin/elements/Dendro.png" style="width: 15px;height: 15px;">+<img
+                            src="../image/genshin/elements/Electro.png" style="width: 15px;height: 15px;">)、
+                        扩散(<img src="../image/genshin/elements/Anemo.png" style="width: 15px;height: 15px;">+<img
+                            src="../image/genshin/elements/Pyro.png" style="width: 15px;height: 15px;">/<img
+                            src="../image/genshin/elements/Hydro.png" style="width: 15px;height: 15px;">/<img
+                            src="../image/genshin/elements/Electro.png" style="width: 15px;height: 15px;">/<img
+                            src="../image/genshin/elements/Cryo.png" style="width: 15px;height: 15px;">)、
+                        结晶(<img src="../image/genshin/elements/Geo.png" style="width: 15px;height: 15px;">+<img
+                            src="../image/genshin/elements/Pyro.png" style="width: 15px;height: 15px;">/<img
+                            src="../image/genshin/elements/Hydro.png" style="width: 15px;height: 15px;">/<img
+                            src="../image/genshin/elements/Electro.png" style="width: 15px;height: 15px;">/<img
+                            src="../image/genshin/elements/Cryo.png" style="width: 15px;height: 15px;">)
                     </p>
                 </div>
             </div>
@@ -128,37 +153,71 @@
             <div id="collapse4" class="panel-collapse collapse">
                 <div class="panel-body">
                     提瓦特中七个元素对应七位神，称为尘世七执政，每个神都掌管一个国家。<br>
-                    <h3 class="Anemo"><img src="../image/genshin/elements/Anemo.png" style="width: 30px;height: 30px;">蒙德</h3>
+                    <h3 class="Anemo"><img src="../image/genshin/elements/Anemo.png"
+                            style="width: 30px;height: 30px;">蒙德</h3>
                     <p>神明：<span class="Anemo">巴巴托斯</span></p>
                     <p>执政：自由</p>
-                    <p>五星角色：<span class="Pyro">迪卢克</span>、<span class="Pyro">可莉</span>、<span class="Hydro">莫娜</span>、<span class="Anemo">温迪(巴巴托斯)</span>、<span class="Anemo">琴</span>、<span class="Cryo">优菈</span>、<span class="Geo">阿贝多</span></p>
-                    <p>四星角色：<span class="Pyro">安柏</span>、<span class="Pyro">班尼特</span>、<span class="Hydro">芭芭拉</span>、<span class="Anemo">砂糖</span>、<span class="Electro">雷泽</span>、<span class="Electro">菲谢尔</span>、<span class="Electro">丽莎</span>、<span class="Cryo">米卡</span>、<span class="Cryo">罗莎莉亚</span>、<span class="Cryo">迪奥娜</span>、<span class="Cryo">凯亚</span>、<span class="Geo">诺艾尔</span></p>
-                    <h3 class="Geo"><img src="../image/genshin/elements/Geo.png" style="width: 30px;height: 30px;">璃月</h3>
+                    <p>五星角色：<span class="Pyro">迪卢克</span>、<span class="Pyro">可莉</span>、<span
+                            class="Hydro">莫娜</span>、<span class="Anemo">温迪(巴巴托斯)</span>、<span
+                            class="Anemo">琴</span>、<span class="Cryo">优菈</span>、<span class="Geo">阿贝多</span></p>
+                    <p>四星角色：<span class="Pyro">安柏</span>、<span class="Pyro">班尼特</span>、<span
+                            class="Hydro">芭芭拉</span>、<span class="Anemo">砂糖</span>、<span class="Electro">雷泽</span>、<span
+                            class="Electro">菲谢尔</span>、<span class="Electro">丽莎</span>、<span
+                            class="Cryo">米卡</span>、<span class="Cryo">罗莎莉亚</span>、<span class="Cryo">迪奥娜</span>、<span
+                            class="Cryo">凯亚</span>、<span class="Geo">诺艾尔</span></p>
+                    <h3 class="Geo"><img src="../image/genshin/elements/Geo.png" style="width: 30px;height: 30px;">璃月
+                    </h3>
                     <p>神明：<span class="Geo">摩拉克斯</span></p>
                     <p>执政：契约</p>
-                    <p>五星角色：<span class="Pyro">胡桃</span>、<span class="Hydro">夜兰</span>、<span class="Anemo">魈</span>、<span class="Anemo">闲云</span>、<span class="Electro">刻晴</span>、<span class="Dendro">白术</span>、<span class="Cryo">申鹤</span>、<span class="Cryo">七七</span>、<span class="Cryo">甘雨</span>、<span class="Geo">钟离(摩拉克斯)</span></p>
-                    <p>四星角色：<span class="Pyro">烟绯</span>、<span class="Pyro">辛焱</span>、<span class="Pyro">香菱</span>、<span class="Pyro">嘉明</span>、<span class="Hydro">行秋</span>、<span class="Electro">北斗</span>、<span class="Dendro">瑶瑶</span>、<span class="Cryo">重云</span>、<span class="Geo">云堇</span>、<span class="Geo">凝光</span></p>
-                    <h3 class="Electro"><img src="../image/genshin/elements/Electro.png" style="width: 30px;height: 30px;">稻妻</h3>
+                    <p>五星角色：<span class="Pyro">胡桃</span>、<span class="Hydro">夜兰</span>、<span
+                            class="Anemo">魈</span>、<span class="Anemo">闲云</span>、<span class="Electro">刻晴</span>、<span
+                            class="Dendro">白术</span>、<span class="Cryo">申鹤</span>、<span class="Cryo">七七</span>、<span
+                            class="Cryo">甘雨</span>、<span class="Geo">钟离(摩拉克斯)</span></p>
+                    <p>四星角色：<span class="Pyro">烟绯</span>、<span class="Pyro">辛焱</span>、<span class="Pyro">香菱</span>、<span
+                            class="Pyro">嘉明</span>、<span class="Hydro">行秋</span>、<span class="Electro">北斗</span>、<span
+                            class="Dendro">瑶瑶</span>、<span class="Cryo">重云</span>、<span class="Geo">云堇</span>、<span
+                            class="Geo">凝光</span></p>
+                    <h3 class="Electro"><img src="../image/genshin/elements/Electro.png"
+                            style="width: 30px;height: 30px;">稻妻</h3>
                     <p>神明：<span class="Electro">巴尔泽布</span></p>
                     <p>执政：永恒</p>
-                    <p>五星角色：<span class="Pyro">宵宫</span>、<span class="Hydro">神里绫人</span>、<span class="Hydro">珊瑚宫心海</span>、<span class="Anemo">枫原万叶</span>、<span class="Electro">雷电将军(影)</span>、<span class="Electro">八重神子</span>、<span class="Cryo">神里绫华</span>、<span class="Geo">千织</span>、<span class="Geo">荒泷一斗</span></p>
-                    <p>四星角色：<span class="Pyro">托马</span>、<span class="Anemo">鹿野院平藏</span>、<span class="Anemo">早柚</span>、<span class="Electro">九条裟罗</span>、<span class="Electro">久岐忍</span>、<span class="Dendro">绮良良</span>、<span class="Cryo">五郎</span></p>
-                    <h3 class="Dendro"><img src="../image/genshin/elements/Dendro.png" style="width: 30px;height: 30px;">须弥</h3>
+                    <p>五星角色：<span class="Pyro">宵宫</span>、<span class="Hydro">神里绫人</span>、<span
+                            class="Hydro">珊瑚宫心海</span>、<span class="Anemo">枫原万叶</span>、<span
+                            class="Electro">雷电将军(影)</span>、<span class="Electro">八重神子</span>、<span
+                            class="Cryo">神里绫华</span>、<span class="Geo">千织</span>、<span class="Geo">荒泷一斗</span></p>
+                    <p>四星角色：<span class="Pyro">托马</span>、<span class="Anemo">鹿野院平藏</span>、<span
+                            class="Anemo">早柚</span>、<span class="Electro">九条裟罗</span>、<span
+                            class="Electro">久岐忍</span>、<span class="Dendro">绮良良</span>、<span class="Cryo">五郎</span></p>
+                    <h3 class="Dendro"><img src="../image/genshin/elements/Dendro.png"
+                            style="width: 30px;height: 30px;">须弥</h3>
                     <p>神明：<span class="Dendro">布耶尔</span></p>
                     <p>执政：智慧</p>
-                    <p>五星角色：<span class="Pyro">迪希雅</span>、<span class="Hydro">妮露</span>、<span class="Anemo">流浪者</span>、<span class="Electro">赛诺</span>、<span class="Dendro">艾尔海森</span>、<span class="Dendro">提纳里</span>、<span class="Dendro">纳西妲(小吉祥草王)</span></p>
-                    <p>四星角色：<span class="Hydro">坎蒂丝</span>、<span class="Anemo">珐露珊</span>、<span class="Electro">赛索斯</span>、<span class="Electro">多莉</span>、<span class="Dendro">卡维</span>、<span class="Dendro">柯莱</span>、<span class="Cryo">莱依拉</span></p>
-                    <h3 class="Hydro"><img src="../image/genshin/elements/Hydro.png" style="width: 30px;height: 30px;">枫丹</h3>
+                    <p>五星角色：<span class="Pyro">迪希雅</span>、<span class="Hydro">妮露</span>、<span
+                            class="Anemo">流浪者</span>、<span class="Electro">赛诺</span>、<span
+                            class="Dendro">艾尔海森</span>、<span class="Dendro">提纳里</span>、<span
+                            class="Dendro">纳西妲(小吉祥草王)</span></p>
+                    <p>四星角色：<span class="Hydro">坎蒂丝</span>、<span class="Anemo">珐露珊</span>、<span
+                            class="Electro">赛索斯</span>、<span class="Electro">多莉</span>、<span
+                            class="Dendro">卡维</span>、<span class="Dendro">柯莱</span>、<span class="Cryo">莱依拉</span></p>
+                    <h3 class="Hydro"><img src="../image/genshin/elements/Hydro.png"
+                            style="width: 30px;height: 30px;">枫丹</h3>
                     <p>神明：<span class="Hydro">芙卡洛斯</span></p>
                     <p>执政：正义</p>
-                    <p>五星角色：<span class="Pyro">林尼</span>、<span class="Hydro">芙宁娜(芙卡洛斯)</span>、<span class="Hydro">那维莱特</span>、<span class="Hydro">希格雯</span>、<span class="Electro">克洛琳德</span>、<span class="Dendro">艾梅莉埃</span>、<span class="Cryo">莱欧斯利</span>、<span class="Geo">娜维娅</span></p>
-                    <p>四星角色：<span class="Pyro">夏沃蕾</span>、<span class="Anemo">琳妮特</span>、<span class="Cryo">夏洛蒂</span>、<span class="Cryo">菲米尼</span></p>
-                    <h3 class="Pyro"><img src="../image/genshin/elements/Pyro.png" style="width: 30px;height: 30px;">纳塔</h3>
+                    <p>五星角色：<span class="Pyro">林尼</span>、<span class="Hydro">芙宁娜(芙卡洛斯)</span>、<span
+                            class="Hydro">那维莱特</span>、<span class="Hydro">希格雯</span>、<span
+                            class="Electro">克洛琳德</span>、<span class="Dendro">艾梅莉埃</span>、<span
+                            class="Cryo">莱欧斯利</span>、<span class="Geo">娜维娅</span></p>
+                    <p>四星角色：<span class="Pyro">夏沃蕾</span>、<span class="Anemo">琳妮特</span>、<span
+                            class="Cryo">夏洛蒂</span>、<span class="Cryo">菲米尼</span></p>
+                    <h3 class="Pyro"><img src="../image/genshin/elements/Pyro.png" style="width: 30px;height: 30px;">纳塔
+                    </h3>
                     <p>神明：<span class="Pyro">赫布里穆</span></p>
                     <p>执政：战争</p>
-                    <p>五星角色：<span class="Hydro">玛拉妮</span>、<span class="Anemo">恰斯卡</span>、<span class="Dendro">基尼奇</span>、<span class="Geo">希诺宁</span></p>
+                    <p>五星角色：<span class="Hydro">玛拉妮</span>、<span class="Anemo">恰斯卡</span>、<span
+                            class="Dendro">基尼奇</span>、<span class="Geo">希诺宁</span></p>
                     <p>四星角色：<span class="Electro">欧洛伦</span>、<span class="Geo">卡齐娜</span></p>
-                    <h3 class="Cryo"><img src="../image/genshin/elements/Cryo.png" style="width: 30px;height: 30px;">至冬</h3>
+                    <h3 class="Cryo"><img src="../image/genshin/elements/Cryo.png" style="width: 30px;height: 30px;">至冬
+                    </h3>
                     <p>神明：<span class="Cryo">巴纳巴斯</span></p>
                     <p>执政：怜爱</p>
                     <p>五星角色：<span class="Pyro">阿蕾奇诺</span>、<span class="Hydro">达达利亚</span></p>

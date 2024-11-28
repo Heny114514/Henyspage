@@ -51,6 +51,20 @@
             font-family: starrail;
             src: url("./font/starrail.ttf");
         }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .container {
+            flex: 1; /* 使容器占据剩余空间 */
+            display: flex; /* 使用flex布局 */
+            justify-content: center; /* 水平居中 */
+            align-items: flex-end; /* 垂直对齐到容器底部 */
+            margin-bottom: 7%; /* 底部留出25%的空间 */
+        }
     </style>
 </head>
 
@@ -98,6 +112,14 @@
         </a>
     </div>
     <div id="starrailtip" class="tips" style="position: fixed;top: 24%;right: 18%;">崩坏：星穹铁道</div>
+
+    <div id="tip1" class="tips" style="position: fixed;bottom: 10%;left: 50%;transform:translateX(-50%);">Mooncake Gambling</div>
+    <div class="container">
+        <img src="./image/mooncakeGambling/die.png" class="button" style="height:75px;" onclick="jump('./web/MooncakeGambling.html')" onmouseover="showtip(tip1);" onmouseout="closetip(tip1)">
+        <img src="" class="button" style="height:75px;">
+    </div>
+    
+    
 </body>
 
 <script src="./js/button.js"></script>

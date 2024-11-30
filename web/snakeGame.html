@@ -44,181 +44,173 @@
     <img src="../image/back.png" style="position: fixed;top: 10px;left: 10px;width: 50px;height: 50px;" class="button"
         onclick="jump('../index.html')" onmouseover="showtip(backtip)" onmouseout="closetip(backtip)">
     <div id="backtip" class="tips" style="position: fixed;top: 23px;left: 70px;">返回上一级</div>
-    <div style="text-align:center;position:absolute;top:10px;left:50%;transform: translateX(-50%);font-size: 100px;font-family:genshin;">
+    <div
+        style="text-align:center;position:absolute;top:10px;left:50%;transform: translateX(-50%);font-size: 100px;font-family:genshin;">
         贪吃蛇</div>
-    <button id="startButton" class="button" style="text-align:center;font-size: 50px;font-family:genshin;z-index:10;" onclick="start()">
+    <button id="startButton" class="button" style="text-align:center;font-size: 50px;font-family:genshin;z-index:10;"
+        onclick="start()">
         开始游戏</button>
-    <div id="scoreText" style="text-align:center;position:absolute;bottom:10%;left:50%;transform: translateX(-50%);font-size: 50px;font-family:genshin;">
+    <div id="scoreText"
+        style="text-align:center;position:absolute;bottom:10%;left:50%;transform: translateX(-50%);font-size: 50px;font-family:genshin;">
         分数:0</div>
 
     <canvas id="pixelCanvas" width="500" height="500" style="position:fixed;display:block;margin:auto;"></canvas>
 </body>
 
 <script>
-    class POSITION{
-        constructor(x,y){
+    //定义坐标类，包含移动方法move，可以实现过墙传送
+    class POSITION {
+        constructor(x, y) {
             this.x = x;
             this.y = y;
         }
 
-        move(method){
-            this.x = (this.x + method[0] + 20)%20;
-            this.y = (this.y + method[1] + 20)%20;
+        move(method) {
+            this.x = (this.x + method[0] + 20) % 20;
+            this.y = (this.y + method[1] + 20) % 20;
         }
     }
-
+    //canvas为<canvas>元素，ctx用于改变画布指定像素颜色，keysPressed记录键盘事件，moves记录移动方向和对应向量，move记录当前移动方向
     const canvas = document.getElementById('pixelCanvas');
     const ctx = canvas.getContext('2d');
-    let keysPressed = {}, moves = {'left':[-1,0],'right':[1,0],'up':[0,-1],'down':[0,1]};
+    let keysPressed = {}, moves = { 'left': [-1, 0], 'right': [1, 0], 'up': [0, -1], 'down': [0, 1] };
     let ifGameRunning = false, move = 'up';
-    let head = new POSITION(0,0);
-    let tail = new POSITION(0,0);
-    let board = new Array(20);
-    let startButton = document.getElementById('startButton');
-    let updated=false;
-    let gameInterval;
-    let score=0,scoreText = document.getElementById('scoreText');
-    
-    for(let i=0;i<20;i++){
+    let head = new POSITION(0, 0);//头部坐标
+    let tail = new POSITION(0, 0);//尾部坐标
+    let board = new Array(20);//场景数据
+    let startButton = document.getElementById('startButton');//开始按钮
+    let updated = false;//判断是否更新状态
+    let gameInterval;//记录定时器
+    let score = 0, scoreText = document.getElementById('scoreText');//分数及页面显示元素
+    //初始化场景二维数组
+    for (let i = 0; i < 20; i++) {
         board[i] = new Array(20);
-        for(let j=0;j<20;j++){
-            board[i][j]='empty';
+        for (let j = 0; j < 20; j++) {
+            board[i][j] = 'empty';
         }
     }
-
+    //键盘监听
     document.addEventListener('keydown', function (e) {
         keysPressed[e.code] = true;
     });
-
     document.addEventListener('keyup', function (e) {
         keysPressed[e.code] = false;
     });
-
-    function setPixel(x,y,color){
+    //改变指定位置像素块颜色
+    function setPixel(x, y, color) {
         ctx.fillStyle = color;
-        ctx.fillRect(x*25,y*25,25,25);
+        ctx.fillRect(x * 25, y * 25, 25, 25);
     }
-
+    //生成糖果并绘制
     function putCandy() {
-        while(true){
-            let x=Math.floor(Math.random() * 20);
-            let y=Math.floor(Math.random() * 20);
-            if(board[x][y]=='empty'){
+        while (true) {
+            let x = Math.floor(Math.random() * 20);
+            let y = Math.floor(Math.random() * 20);
+            if (board[x][y] == 'empty') {
                 board[x][y] = 'candy';
-                setPixel(x,y,'#ffff00');
+                setPixel(x, y, '#ffff00');
                 return;
             }
         }
     }
-
+    //更新游戏状态
     function updateGame() {
-        updated=true;
-        // 这里更新游戏逻辑和状态
+        updated = true;
         board[head.x][head.y] = move;
         head.move(moves[move]);
+        //判断下一步接触什么
+        switch (board[head.x][head.y]) {
+            case 'candy'://下一步吃糖
+                score++;
+                scoreText.textContent = '分数:' + score;
+                setPixel(head.x, head.y, '#00ffff');
+                board[head.x][head.y] = move;
+                putCandy();
+                break;
 
-        switch(board[head.x][head.y]){
-            case 'candy':
-            score++;
-            scoreText.textContent = '分数:'+score;
-            setPixel(head.x,head.y,'#00ffff');
-            board[head.x][head.y]=move;
-            putCandy();
-            break;
+            case 'empty'://下一步为空
+                setPixel(head.x, head.y, '#00ffff');
+                board[head.x][head.y] = move;
+                let x = tail.x, y = tail.y;
+                setPixel(tail.x, tail.y, '#ffffff');
+                tail.move(moves[board[tail.x][tail.y]]);
+                board[x][y] = 'empty';
+                break;
 
-            case 'empty':
-            setPixel(head.x,head.y,'#00ffff');
-            board[head.x][head.y]=move;
-            let x=tail.x,y=tail.y;
-            setPixel(tail.x,tail.y,'#ffffff');
-            tail.move(moves[board[tail.x][tail.y]]);
-            board[x][y]='empty';
-            break;
-
-            default:
-            ifGameRunning=false;
+            default://下一步撞到自身，游戏结束
+                ifGameRunning = false;
         }
     }
-
-    function initGame(){
-        score=0;
-        scoreText.textContent = '分数:'+score;
-        for(let i=0;i<20;i++){
-            for(let j=0;j<20;j++){
-                board[i][j]='empty';
+    //初始化游戏数据
+    function initGame() {
+        score = 0;
+        scoreText.textContent = '分数:' + score;
+        for (let i = 0; i < 20; i++) {
+            for (let j = 0; j < 20; j++) {
+                board[i][j] = 'empty';
             }
         }
         head.x = 10;
         head.y = 9;
         tail.x = 10;
         tail.y = 11;
-        board[10][9]='up';
-        board[10][10]='up';
-        board[10][11]='up';
+        board[10][9] = 'up';
+        board[10][10] = 'up';
+        board[10][11] = 'up';
         move = 'up';
         putCandy();
-        
-        for(let i=0;i<20;i++){
-            for(let j=0;j<20;j++){
-                switch(board[i][j]){
+
+        for (let i = 0; i < 20; i++) {
+            for (let j = 0; j < 20; j++) {
+                switch (board[i][j]) {
                     case 'empty':
-                        setPixel(i,j,'#ffffff');
+                        setPixel(i, j, '#ffffff');
                         break;
                     case 'candy':
-                        setPixel(i,j,'#ffff00');
+                        setPixel(i, j, '#ffff00');
                         break;
                     default:
-                        setPixel(i,j,'#00ffff');
+                        setPixel(i, j, '#00ffff');
                 };
             }
         }
     }
-
+    //游戏主循环，重复监测按键
     function gameLoop() {
-        if(ifGameRunning==false){
+        if (ifGameRunning == false) {
             clearInterval(gameInterval);
             startButton.style.visibility = 'visible';
             return;
         }
-        if(updated){
-            if (keysPressed['ArrowUp']&&move!='down'&&move!='up') {
+        if (updated) {
+            if (keysPressed['ArrowUp'] && move != 'down' && move != 'up') {
                 move = 'up';
-                updated=false;
+                updated = false;
             }
-            if (keysPressed['ArrowDown']&&move!='up'&&move!='down') {
+            if (keysPressed['ArrowDown'] && move != 'up' && move != 'down') {
                 move = 'down';
-                updated=false;
+                updated = false;
             }
-            if (keysPressed['ArrowLeft']&&move!='right'&&move!='left') {
+            if (keysPressed['ArrowLeft'] && move != 'right' && move != 'left') {
                 move = 'left';
-                updated=false;
+                updated = false;
             }
-            if (keysPressed['ArrowRight']&&move!='left'&&move!='right') {
+            if (keysPressed['ArrowRight'] && move != 'left' && move != 'right') {
                 move = 'right';
-                updated=false;
+                updated = false;
             }
         }
-        
-
         // 请求下一帧动画
         requestAnimationFrame(gameLoop);
     }
-    function start(){
+    //开始游戏
+    function start() {
         startButton.style.visibility = 'hidden';
         ifGameRunning = true;
         initGame();
-        gameInterval=setInterval(updateGame, 200);
-        requestAnimationFrame(gameLoop);
+        gameInterval = setInterval(updateGame, 200);//定时器，每200ms运行一次updateGame
+        requestAnimationFrame(gameLoop);//启动主循环
     }
-
-    // 开始游戏循环
-    // requestAnimationFrame(gameLoop);
-
-    // 设置定时器，每隔1秒更新游戏状态
-    // 
-    // setPixel(5,19,'#00ffff');
-    // initGame();
-
 </script>
 
 </html>

@@ -21,18 +21,21 @@
         p {
             text-indent: 2em;
         }
+
         .container {
             display: flex;
-            justify-content: center; /* 水平居中 */
-            align-items: center; /* 垂直居中 */
+            justify-content: center;
+            /* 水平居中 */
+            align-items: center;
+            /* 垂直居中 */
         }
     </style>
 </head>
 
 <body style="font-family: genshin;">
 
-    <img src="../image/back.png" style="position: fixed;top: 10px;left: 10px;width: 50px;height: 50px;"
-        class="button" onclick="jump('../index.html')" onmouseover="showtip(backtip)" onmouseout="closetip(backtip)">
+    <img src="../image/back.png" style="position: fixed;top: 10px;left: 10px;width: 50px;height: 50px;" class="button"
+        onclick="jump('../index.html')" onmouseover="showtip(backtip)" onmouseout="closetip(backtip)">
     <div id="backtip" class="tips" style="position: fixed;top: 23px;left: 70px;">返回上一级</div>
 
     <div style="text-align:center;font-size: 100px;font-family:genshin;">博饼模拟器</div>
@@ -42,7 +45,7 @@
     <div class="btn-toolbar" role="toolbar" style="display: table; width: auto; margin-left: auto; margin-right: auto;">
         <div class="btn-group btn-group-lg">
             <button type="button" class="btn btn-default" onclick="setDisplay()">什么是博饼？</button>
-         </div>
+        </div>
         <div class="btn-group btn-group-lg">
             <button type="button" class="btn btn-default" onclick="generate()">掷骰子</button>
         </div>
@@ -51,7 +54,8 @@
         </div>
     </div>
 
-    <div id="cheatPanel" class="btn-toolbar container" role="toolbar" style="display: none; width: auto; margin-left: auto; margin-right: auto;margin-top:20px;">
+    <div id="cheatPanel" class="btn-toolbar container" role="toolbar"
+        style="display: none; width: auto; margin-left: auto; margin-right: auto;margin-top:20px;">
         <div class="dropdown">
             <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">骰子1
                 <span class="caret"></span>
@@ -210,131 +214,146 @@
         <!--  -->
     </div>
 
-    <div id="whatis" class="panel panel-default" style="position: fixed;top:25%;left:4%;height:auto;width:25%;display:none;">
+    <div id="whatis" class="panel panel-default"
+        style="position: fixed;top:25%;left:4%;height:auto;width:25%;display:none;">
         <div class="panel-body" style="font-size:17px;">
-            <p>博饼是一种流行于中国福建厦门、泉州等闽南地区以及台湾地区的传统中秋习俗，它起源于郑成功屯兵厦门时期，旨在解士兵的中秋相思之情、激励鼓舞士气。博饼是一种独特的月饼文化，也是对历史的传承。这个活动通过投掷六粒骰子，利用结果的组合来决定参与者的奖品，奖品传统上为大小不同的月饼，共计一会，设状元1个，对堂2个，三红4个，四进8个，二举16个，一秀32个。博饼的游戏规则简单公平，既充满竞争悬念，又富于生活情趣，历来为广大民众所喜爱。</p>
-            <p>博饼不仅仅是一种游戏，它还承载着人们对未来一年运气的美好期望，许多人相信博中状元的人，一年运气总是会特别好。这个活动强调的是开心和好兆头，而不再是赌博的意味，成为中秋聚会的保留节目。博饼活动也体现了人们对节日的重视，甚至有“小春节，大中秋”的说法。</p>
+            <p>博饼是一种流行于中国福建厦门、泉州等闽南地区以及台湾地区的传统中秋习俗，它起源于郑成功屯兵厦门时期，旨在解士兵的中秋相思之情、激励鼓舞士气。博饼是一种独特的月饼文化，也是对历史的传承。这个活动通过投掷六粒骰子，利用结果的组合来决定参与者的奖品，奖品传统上为大小不同的月饼，共计一会，设状元1个，对堂2个，三红4个，四进8个，二举16个，一秀32个。博饼的游戏规则简单公平，既充满竞争悬念，又富于生活情趣，历来为广大民众所喜爱。
+            </p>
+            <p>博饼不仅仅是一种游戏，它还承载着人们对未来一年运气的美好期望，许多人相信博中状元的人，一年运气总是会特别好。这个活动强调的是开心和好兆头，而不再是赌博的意味，成为中秋聚会的保留节目。博饼活动也体现了人们对节日的重视，甚至有“小春节，大中秋”的说法。
+            </p>
         </div>
     </div>
 </body>
 
 <script>
-    let diceSrc = ['../image/mooncakeGambling/dice1.png','../image/mooncakeGambling/dice2.png','../image/mooncakeGambling/dice3.png','../image/mooncakeGambling/dice4.png','../image/mooncakeGambling/dice5.png','../image/mooncakeGambling/dice6.png'];
-    let dice = [],numbers=[4,4,4,4,1,1],resultPanel=document.getElementById('resultPanel');
+    //diceSrc存储六个点数图片源,dice存储用于页面中展示骰子的六个<img>元素,numbers存储六个骰子点数,resultpPanel存储页面中用于输出博饼结果的<div>元素
+    let diceSrc = ['../image/mooncakeGambling/dice1.png', '../image/mooncakeGambling/dice2.png', '../image/mooncakeGambling/dice3.png', '../image/mooncakeGambling/dice4.png', '../image/mooncakeGambling/dice5.png', '../image/mooncakeGambling/dice6.png'];
+    let dice = [], numbers = [4, 4, 4, 4, 1, 1], resultPanel = document.getElementById('resultPanel');
+    //初始化骰子和结果
     resultPanel.textContent = '状元插金花';
-    for(let i=0;i<6;i++){
+    for (let i = 0; i < 6; i++) {
         dice.push(document.createElement('img'));
-        dice[i].src = diceSrc[numbers[i]-1];
+        dice[i].src = diceSrc[numbers[i] - 1];
         dice[i].style.width = '100px';
         document.getElementById('diceStage').appendChild(dice[i]);
     }
-    function updateDice(){
-        for(let i=0;i<6;i++){
-            dice[i].src=diceSrc[numbers[i]-1];
+    //更新页面骰子显示的函数
+    function updateDice() {
+        for (let i = 0; i < 6; i++) {
+            dice[i].src = diceSrc[numbers[i] - 1];
         }
     }
-    function count(x){
-        let cnt=0;
-        for(let i of numbers){
-            if(i===x){
+    //返回数组numbers中点数x的频数
+    function count(x) {
+        let cnt = 0;
+        for (let i of numbers) {
+            if (i === x) {
                 cnt++;
             }
         }
         return cnt;
     }
-    function start(){
-        let oth=0,othn=0,four=0;
-        four=count(4);
-        for(let i of [1,2,3,5,6]){
-            if(oth < count(i)){
-                oth=count(i);
-                othn=i;
+    //进行一次博饼模拟
+    function start() {
+        //four记录4出现的次数，othn记录除4外频数最高的点数，oth记录其频数
+        let oth = 0, othn = 0, four = 0;
+        four = count(4);
+        for (let i of [1, 2, 3, 5, 6]) {
+            if (oth < count(i)) {
+                oth = count(i);
+                othn = i;
             }
         }
-        let result='无';
-        if(four === 1 && oth === 1){
-            result='对堂';
-        }else if(oth===4){
+        //初始化结果
+        let result = '无';
+        //进行结果判断
+        if (four === 1 && oth === 1) {
+            result = '对堂';
+        } else if (oth === 4) {
             result = '四进';
-            if(four===1){
-                result+='带一秀';
+            if (four === 1) {
+                result += '带一秀';
             }
-            if(four===2){
-                result+='带二举';
+            if (four === 2) {
+                result += '带二举';
             }
-        }else if(oth===5){
-            let fol=0;
-            for(let i of numbers){
-                if(i!==othn) fol=i;
+        } else if (oth === 5) {
+            let fol = 0;
+            for (let i of numbers) {
+                if (i !== othn) fol = i;
             }
-            if(othn===1){
-                result="五王带"+fol;
-            }else{
-                result="五子带"+fol;
+            if (othn === 1) {
+                result = "五王带" + fol;
+            } else {
+                result = "五子带" + fol;
             }
-        }else if(oth===6){
-            if(othn===1){
-                result="遍地锦";
-            }else{
-                result="六勃黑";
+        } else if (oth === 6) {
+            if (othn === 1) {
+                result = "遍地锦";
+            } else {
+                result = "六勃黑";
             }
-        }else if(four===1){
-            result="一秀";
-        }else if(four===2){
-            result="二举";
-        }else if(four===3){
-            result="三红";
-        }else if(four===4){
-            let fol=0;
-            for(let i of numbers){
-                if(i!==4) fol+=i;
+        } else if (four === 1) {
+            result = "一秀";
+        } else if (four === 2) {
+            result = "二举";
+        } else if (four === 3) {
+            result = "三红";
+        } else if (four === 4) {
+            let fol = 0;
+            for (let i of numbers) {
+                if (i !== 4) fol += i;
             }
-            if(fol===2){
-                result="状元插金花";
-            }else{
-                result="状元带"+fol;
+            if (fol === 2) {
+                result = "状元插金花";
+            } else {
+                result = "状元带" + fol;
             }
-        }else if(four===5){
-            let fol=0;
-            for(let i of numbers){
-                if(i!==4) fol+=i;
+        } else if (four === 5) {
+            let fol = 0;
+            for (let i of numbers) {
+                if (i !== 4) fol += i;
             }
-            result="五王带"+fol;
-        }else if(four===6){
-            result="满堂红";
+            result = "五王带" + fol;
+        } else if (four === 6) {
+            result = "满堂红";
         }
+        //写入结果，更新骰子
         resultPanel.textContent = result;
         updateDice();
     }
-    function generate(){
-        for(let i=0;i<6;i++){
-            numbers[i]=Math.floor(Math.random() * 6)+1;
+    //随机数
+    function generate() {
+        for (let i = 0; i < 6; i++) {
+            numbers[i] = Math.floor(Math.random() * 6) + 1;
         }
         start();
     }
-    function cheatMode(){
-        let panel=document.getElementById('cheatPanel');
-        if(panel.style.display=='none'){
-            panel.style.display='flex';
+    //切换下拉选择栏目显示的函数
+    function cheatMode() {
+        let panel = document.getElementById('cheatPanel');
+        if (panel.style.display == 'none') {
+            panel.style.display = 'flex';
         }
-        else{
-            panel.style.display='none';
-        }
-    }
-    function setDisplay(){
-        let panel=document.getElementById('whatis');
-        if(panel.style.display=='none'){
-            panel.style.display='block';
-        }
-        else{
-            panel.style.display='none';
+        else {
+            panel.style.display = 'none';
         }
     }
-    function change(n,t){
-        numbers[n]=t;
+    //切换介绍栏目显示的函数
+    function setDisplay() {
+        let panel = document.getElementById('whatis');
+        if (panel.style.display == 'none') {
+            panel.style.display = 'block';
+        }
+        else {
+            panel.style.display = 'none';
+        }
+    }
+    //更改第(n+1)个骰子为t点
+    function change(n, t) {
+        numbers[n] = t;
         start();
     }
-
 </script>
 
 

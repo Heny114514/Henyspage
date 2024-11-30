@@ -52,18 +52,25 @@
             src: url("./font/starrail.ttf");
         }
 
-        body, html {
+        body,
+        html {
             height: 100%;
             margin: 0;
             display: flex;
             flex-direction: column;
         }
+
         .container {
-            flex: 1; /* 使容器占据剩余空间 */
-            display: flex; /* 使用flex布局 */
-            justify-content: center; /* 水平居中 */
-            align-items: flex-end; /* 垂直对齐到容器底部 */
-            margin-bottom: 7%; /* 底部留出25%的空间 */
+            flex: 1;
+            /* 使容器占据剩余空间 */
+            display: flex;
+            /* 使用flex布局 */
+            justify-content: center;
+            /* 水平居中 */
+            align-items: flex-end;
+            /* 垂直对齐到容器底部 */
+            margin-bottom: 7%;
+            /* 底部留出25%的空间 */
         }
     </style>
 </head>
@@ -74,7 +81,8 @@
 
 
     <img src="./image/back_white.png" style="position: fixed;top: 10px;left: 10px;width: 50px;height: 50px;"
-        class="button" onclick="jump('https\://leggggend.github.io/freshmanweclass/')" onmouseover="showtip(backtip)" onmouseout="closetip(backtip)">
+        class="button" onclick="jump('https\://leggggend.github.io/freshmanweclass/')" onmouseover="showtip(backtip)"
+        onmouseout="closetip(backtip)">
     <div id="backtip" class="tips" style="position: fixed;top: 22px;left: 70px;">返回上一级</div>
 
     <audio id="bgaudio" src="https://heny114514.github.io/Henyspage/audio/index_bgm.mp3" preload="auto" loop></audio>
@@ -113,17 +121,23 @@
     </div>
     <div id="starrailtip" class="tips" style="position: fixed;top: 24%;right: 18%;">崩坏：星穹铁道</div>
 
-    <div id="tip1" class="tips" style="position: fixed;bottom: 10%;left: 50%;transform:translateX(-50%);">Mooncake Gambling</div>
-    <div id="tip2" class="tips" style="position: fixed;bottom: 10%;left: 50%;transform:translateX(-50%);">Snake Game</div>
-    <div id="tip3" class="tips" style="position: fixed;bottom: 10%;left: 50%;transform:translateX(-50%);">Twenty-four Puzzle</div>
+    <div id="tip1" class="tips" style="position: fixed;bottom: 10%;left: 50%;transform:translateX(-50%);">Mooncake
+        Gambling</div>
+    <div id="tip2" class="tips" style="position: fixed;bottom: 10%;left: 50%;transform:translateX(-50%);">Snake Game
+    </div>
+    <div id="tip3" class="tips" style="position: fixed;bottom: 10%;left: 50%;transform:translateX(-50%);">Twenty-four
+        Puzzle</div>
 
     <div class="container">
-        <img src="./image/mooncakeGambling/die.png" class="button" style="height:75px;" onclick="jump('./web/MooncakeGambling.html')" onmouseover="showtip(tip1);" onmouseout="closetip(tip1)">
-        <img src="./image/snakegame/snakegame.png" class="button" style="height:75px;" onclick="jump('./web/snakegame.html')" onmouseover="showtip(tip2);" onmouseout="closetip(tip2)">
-        <img src="./image/24puzzle/24puzzle.png" class="button" style="height:75px;" onclick="jump('./web/24puzzle.html')" onmouseover="showtip(tip3);" onmouseout="closetip(tip3)">
+        <img src="./image/mooncakeGambling/die.png" class="button" style="height:75px;"
+            onclick="jump('./web/MooncakeGambling.html')" onmouseover="showtip(tip1);" onmouseout="closetip(tip1)">
+        <img src="./image/snakegame/snakegame.png" class="button" style="height:75px;"
+            onclick="jump('./web/snakegame.html')" onmouseover="showtip(tip2);" onmouseout="closetip(tip2)">
+        <img src="./image/24puzzle/24puzzle.png" class="button" style="height:75px;"
+            onclick="jump('./web/24puzzle.html')" onmouseover="showtip(tip3);" onmouseout="closetip(tip3)">
     </div>
-    
-    
+
+
 </body>
 
 <script src="./js/button.js"></script>

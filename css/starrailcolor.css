@@ -1,21 +1,27 @@
-.Physical{
+.Physical {
     color: #a5a5a5;
 }
-.Fire{
+
+.Fire {
     color: #ff0000;
 }
-.Ice{
+
+.Ice {
     color: #50b4dc;
 }
-.Lightning{
+
+.Lightning {
     color: #C216FA;
 }
-.Wind{
+
+.Wind {
     color: #69F325;
 }
-.Quantum{
+
+.Quantum {
     color: #5A3CC8;
 }
-.Imaginary{
+
+.Imaginary {
     color: #D7A23B;
 }
